@@ -8,7 +8,7 @@
         public Employee Manager { get; set; }
         public DateTime StartDate { get; set; }
         public float Salary { get; set; }
-        public float Comision { get; set; }
+        public float? Comision { get; set; }
         public int Deptno { get; set; }
         public List<Product> Products { get; set; }
     }

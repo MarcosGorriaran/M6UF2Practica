@@ -1,13 +1,18 @@
 ﻿using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Cfg;
 using NHibernate;
+using Npgsql;
 
 namespace cat.itb.M6UF2EA3.connections
 {
     public class SessionFactoryCloud
 
     {
-        private static string ConnectionString = "Server=ella.db.elephantsql.com;Port=5432;Database=vohtpoqn;User Id=vohtpoqn;Password=z-Kxpge1zI6GmtmKt1JJfGPLnoubMuzZBM;";
+        const string Host = "ella.db.elephantsql.com";
+        const string Db= "vohtpoqn";
+        const string User = "vohtpoqn";
+        const string Password = "Kxpge1zI6GmtmKt1JJfGPLnoubMuzZBM";
+        private static string ConnectionString = $"Server={Host};Port=5432;Database={Db};User Id={User};Password={Password};";
         private static ISessionFactory session;
 
         public static ISessionFactory CreateSession<T>()
@@ -28,6 +33,14 @@ namespace cat.itb.M6UF2EA3.connections
         public static ISession Open<T>()
         {
             return CreateSession<T>().OpenSession();
+        }
+        public static NpgsqlConnection OpenNpgsqlConnection()
+        {
+            NpgsqlConnection conn = new NpgsqlConnection(
+                ConnectionString
+            );
+            conn.Open();
+            return conn;
         }
     }
 }
