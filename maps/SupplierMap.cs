@@ -19,7 +19,7 @@ namespace cat.itb.M6UF2Pr.maps
             Map(sup => sup.Amount).Column("amount");
             Map(sup => sup.Credit).Column("credit");
             Map(sup => sup.Remark).Column("remark");
-            HasMany(sup => sup.Orders).KeyColumn("supplierno").Cascade.AllDeleteOrphan();
+            HasMany(sup => sup.Orders).KeyColumn("supplierno").Cascade.AllDeleteOrphan().AsSet();
         }
     }
 }

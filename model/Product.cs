@@ -9,6 +9,6 @@
         public int MinStock { get; set; }
         public float Price { get; set; }
         public Employee Responsible { get; set; }
-        public List<Supplier> Suppliers { get; set; }
+        public Supplier Supplier { get; set; }
     }
 }

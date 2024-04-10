@@ -15,7 +15,7 @@ namespace cat.itb.M6UF2Pr.maps
             Map(pro => pro.MinStock).Column("minstock");
             Map(pro => pro.Price).Column("price");
             References(pro => pro.Responsible).Column("empno");
-            HasMany(pro => pro.Suppliers).KeyColumn("productno").Cascade.AllDeleteOrphan();
+            HasOne(pro => pro.Supplier).PropertyRef(nameof(Supplier.Product)).Cascade.AllDeleteOrphan();
         }
     }
 }

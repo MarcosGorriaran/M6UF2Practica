@@ -18,7 +18,7 @@ namespace cat.itb.M6UF2Pr.maps
             Map(emp => emp.Comision).Column("commission");
             Map(emp => emp.Deptno).Column("deptno");
 
-            HasMany(emp => emp.Products).KeyColumn("empno").Cascade.AllDeleteOrphan();
+            HasMany(emp => emp.Products).KeyColumn("empno").Cascade.AllDeleteOrphan().AsSet();
         }
     }
 }
