@@ -8,6 +8,7 @@ public class Driver
     public static void Main()
     {
         const string Menu = "1. InsertADO\n"+
+            "2. UpdateADO\n"+
             "13. Exit";
         const string InsertADOShow = "{0} empleados insertados correctamente";
         const int InsertADOOption = 1;
@@ -70,7 +71,21 @@ public class Driver
                     Console.WriteLine(InsertADOShow,inserts);
                     break;
                 case UpdateProductADOOption:
-
+                    List<Product> adoChangedProducts = new List<Product>(new Product[]
+                    {
+                        productCRUD.SelectByCode(100890),
+                        productCRUD.SelectByCode(200376),
+                        productCRUD.SelectByCode(200380),
+                        productCRUD.SelectByCode(100861)
+                    });
+                    inserts = 0;
+                    foreach(Product product in adoChangedProducts)
+                    {
+                        if (productCRUD.UpdateADO(product))
+                        {
+                            inserts++;
+                        }
+                    }
                     break;
             }
         } while (option != ExitOption);
