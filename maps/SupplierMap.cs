@@ -1,12 +1,14 @@
-﻿using cat.itb.M6UF2Pr.model;
+﻿
 using FluentNHibernate.Mapping;
 
-namespace cat.itb.M6UF2Pr.maps
+namespace cat.itb.M6UF2Pr
 {
     public class SupplierMap : ClassMap<Supplier>
     {
         public SupplierMap()
         {
+            Table("SUPPLIER");
+
             Id(sup => sup.Id);
             Map(sup => sup.Name).Column("name");
             Map(sup => sup.Address).Column("address");

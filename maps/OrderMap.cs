@@ -1,12 +1,13 @@
-﻿using cat.itb.M6UF2Pr.model;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 
-namespace cat.itb.M6UF2Pr.maps
+namespace cat.itb.M6UF2Pr
 {
     public class OrderMap : ClassMap<Order>
     {
         public OrderMap() 
         {
+            Table("ORDERP");
+
             Id(ord=>ord.Id);
             References(ord=>ord.Supplier).Column("supplierno");
             Map(ord => ord.OrderDate).Column("orderdate");

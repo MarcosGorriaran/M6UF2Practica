@@ -1,11 +1,10 @@
-﻿using cat.itb.M6UF2Pr.model;
-using Npgsql;
+﻿using Npgsql;
 
-namespace cat.itb.M6UF2Pr.cruds
+namespace cat.itb.M6UF2Pr
 {
     public class EmployeeCRUD : CRUD<Employee>
     {
-        public string InsertADO(List<Employee> employees)
+        public int InsertADO(List<Employee> employees)
         {
             NpgsqlCommand sql = new NpgsqlCommand("INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno)" +
                 " VALUES (@surname,@job,@manager, @startDate, @salary,@comission,@deptno);");
@@ -23,7 +22,7 @@ namespace cat.itb.M6UF2Pr.cruds
                 int queryResult = ExecutePreparedStatement(sql);
                 if (queryResult !=-1) amountInserts+=queryResult;
             }
-            return $"{amountInserts} empleados han sido insertados";
+            return amountInserts;
         }
     }
 }

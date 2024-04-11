@@ -3,7 +3,7 @@ using FluentNHibernate.Cfg;
 using NHibernate;
 using Npgsql;
 
-namespace cat.itb.M6UF2EA3.connections
+namespace cat.itb.M6UF2Pr
 {
     public class SessionFactoryCloud
 

@@ -1,19 +1,19 @@
-﻿namespace cat.itb.M6UF2Pr.model
+﻿namespace cat.itb.M6UF2Pr
 {
     public class Supplier
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string StreetCode { get; set; }
-        public string ZipCode { get; set; }
-        public int Area { get; set; }
-        public string Phone {  get; set; }
-        public Product Product { get; set; }
-        public int Amount { get; set; }
-        public float Credit { get; set; }
-        public string Remark { get; set; }
-        public List<Order> Orders { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Address { get; set; }
+        public virtual string City { get; set; }
+        public virtual string StreetCode { get; set; }
+        public virtual string ZipCode { get; set; }
+        public virtual int Area { get; set; }
+        public virtual string Phone {  get; set; }
+        public virtual Product Product { get; set; }
+        public virtual int Amount { get; set; }
+        public virtual float Credit { get; set; }
+        public virtual string Remark { get; set; }
+        public virtual IList<Order> Orders { get; set; }
     }
 }

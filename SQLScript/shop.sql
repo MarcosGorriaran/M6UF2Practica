@@ -11,23 +11,28 @@ CREATE TABLE EMPLOYEE ( id			SERIAL NOT NULL PRIMARY KEY,
                        startdate	TIMESTAMPTZ,
                        salary		DECIMAL(12,2),
                        commission	DECIMAL(12,2),
-					   deptno		INTEGER NOT NULL 
+					   deptno		INTEGER NOT NULL,
+                      CONSTRAINT FK_EMP FOREIGN KEY (managerno) REFERENCES EMPLOYEE(id)
 					   );
 
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('SÁNCHEZ','ADMINISTRATIU',6, '1980-12-17', 104000,NULL,20);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('ARROYO','VENEDOR',4, '1980-02-20', 208000,39000,30);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('SALA','VENEDOR',4, '1981-02-22', 162500,65000,30);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('JIMÉNEZ','DIRECTOR',9, '1981-04-02', 386750,NULL,30);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('MARTÍN','VENEDOR',4, '1981-09-29', 162500,182000,30);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('NEGRO','DIRECTOR',9, '1981-05-01', 370500,NULL,20);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('CEREZO','DIRECTOR',9, '1981-06-09', 318500,NULL,10);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('GIL','ANALISTA',7, '1981-11-09', 390000,NULL,10);
 INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('REY','GERENT',NULL, '1981-11-17', 650000,NULL,10);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('TOVAR','VENEDOR',4, '1981-09-08', 195000,0,30);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('ALONSO','ADMINISTRATIU',6, '1981-09-23', 143000,NULL,20);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('JIMENO','ADMINISTRATIU',6, '1981-12-03', 123500,NULL,20);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('FERNÁNDEZ','ANALISTA',7, '1981-12-03', 390000,NULL,10);
-INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('MUÑOZ','ADMINISTRATIU',6, '1982-01-23', 169000,NULL,20);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('JIMÉNEZ','DIRECTOR',1, '1981-04-02', 386750,NULL,30);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('CEREZO','DIRECTOR',1, '1981-06-09', 318500,NULL,10);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('GIL','ANALISTA',3, '1981-11-09', 390000,NULL,10);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('SÁNCHEZ','ADMINISTRATIU',4, '1980-12-17', 104000,NULL,20);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('ARROYO','VENEDOR',2, '1980-02-20', 208000,39000,30);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('SALA','VENEDOR',2, '1981-02-22', 162500,65000,30);
+
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('MARTÍN','VENEDOR',2, '1981-09-29', 162500,182000,30);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('NEGRO','DIRECTOR',1, '1981-05-01', 370500,NULL,20);
+
+
+
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('TOVAR','VENEDOR',2, '1981-09-08', 195000,0,30);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('ALONSO','ADMINISTRATIU',4, '1981-09-23', 143000,NULL,20);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('JIMENO','ADMINISTRATIU',4, '1981-12-03', 123500,NULL,20);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('FERNÁNDEZ','ANALISTA',3, '1981-12-03', 390000,NULL,10);
+INSERT INTO EMPLOYEE (surname,job,managerno,startdate,salary,commission,deptno) VALUES ('MUÑOZ','ADMINISTRATIU',4, '1982-01-23', 169000,NULL,20);
 
 
 CREATE TABLE PRODUCT ( id			SERIAL NOT NULL PRIMARY KEY,
@@ -37,7 +42,7 @@ CREATE TABLE PRODUCT ( id			SERIAL NOT NULL PRIMARY KEY,
                       minstock		NUMERIC (12),
                       price			DECIMAL(8,2),
 					  empno			INTEGER,
-					  CONSTRAINT FK_EMP FOREIGN KEY (empno) REFERENCES EMPLOYEE(id) ON DELETE CASCADE 
+					  CONSTRAINT FK_EMP FOREIGN KEY (empno) REFERENCES EMPLOYEE(id) ON DELETE CASCADE
 					  );
 
 
@@ -76,8 +81,8 @@ CREATE TABLE SUPPLIER ( id			SERIAL NOT NULL PRIMARY KEY,
 						amount		NUMERIC (12),
 						credit		DECIMAL(9,2),
 						remark		TEXT,
-						CONSTRAINT FK_PROD FOREIGN KEY (productno) REFERENCES PRODUCT(id) ON DELETE CASCADE						
-						);				
+						CONSTRAINT FK_PROD FOREIGN KEY (productno) REFERENCES PRODUCT(id) ON DELETE CASCADE
+						);
 
 
 INSERT INTO SUPPLIER (name,address,city,stcode,zipcode,area,phone, productno ,amount, credit, remark)
@@ -176,9 +181,3 @@ INSERT INTO ORDERP (supplierno,orderdate, amount,deliverydate,cost)
 VALUES (10, '1987-03-15', 100, '1987-01-01', 2400);
 
 COMMIT;
-
-
-
-
-
-

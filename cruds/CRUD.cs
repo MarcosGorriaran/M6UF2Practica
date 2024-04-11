@@ -1,8 +1,7 @@
-﻿using cat.itb.M6UF2EA3.connections;
-using NHibernate;
+﻿using NHibernate;
 using Npgsql;
 
-namespace cat.itb.M6UF2Pr.cruds
+namespace cat.itb.M6UF2Pr
 {
     /// <summary>
     ///     Class designed to make operations with NHibernate with the session defined on SessionFactoryCloud
@@ -22,7 +21,7 @@ namespace cat.itb.M6UF2Pr.cruds
         /// <returns>An object of the specified type param specified on the object</returns>
         public T SelectById<TParam>(TParam id)
         {
-            throw new NotImplementedException();
+            return session.Get<T>(id);
         }
         /// <summary>
         ///     Returns a list of objects with all the information from the table the session points to

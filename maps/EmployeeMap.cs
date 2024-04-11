@@ -1,7 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using cat.itb.M6UF2Pr.model;
 
-namespace cat.itb.M6UF2Pr.maps
+namespace cat.itb.M6UF2Pr
 {
     public class EmployeeMap : ClassMap<Employee>
     {
@@ -19,6 +18,7 @@ namespace cat.itb.M6UF2Pr.maps
             Map(emp => emp.Deptno).Column("deptno");
 
             HasMany(emp => emp.Products).KeyColumn("empno").Cascade.AllDeleteOrphan().AsSet();
+            HasMany(emp => emp.Lackeys).KeyColumn("managerno").AsSet();
         }
     }
 }
