@@ -32,6 +32,10 @@ namespace cat.itb.M6UF2Pr
             sql.Parameters.AddWithValue("code",product.Code);
             sql.Parameters.AddWithValue("curStock",product.CurrentStock);
             sql.Parameters.AddWithValue("id",product.Id);
+
+            int updated = ExecutePreparedStatementNonQuery(sql);
+
+            return updated > 0;
         }
     }
 }

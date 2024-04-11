@@ -11,8 +11,10 @@ public class Driver
             "13. Exit";
         const string InsertADOShow = "{0} empleados insertados correctamente";
         const int InsertADOOption = 1;
+        const int UpdateProductADOOption = 2;
         const int ExitOption = 13;
         EmployeeCRUD empCRUD = new EmployeeCRUD();
+        ProductCRUD productCRUD = new ProductCRUD();
         int option;
         int inserts;
         do
@@ -66,6 +68,9 @@ public class Driver
                         }
                     }));
                     Console.WriteLine(InsertADOShow,inserts);
+                    break;
+                case UpdateProductADOOption:
+
                     break;
             }
         } while (option != ExitOption);
