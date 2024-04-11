@@ -65,6 +65,7 @@ public class Driver
                             Deptno=10
                         }
                     }));
+                    Console.WriteLine(InsertADOShow,inserts);
                     break;
             }
         } while (option != ExitOption);

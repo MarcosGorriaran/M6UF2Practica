@@ -10,8 +10,8 @@
         public virtual float Salary { get; set; }
         public virtual float? Comision { get; set; }
         public virtual int Deptno { get; set; }
-        public virtual IList<Product> Products { get; set; }
-        public virtual IList<Employee> Lackeys { get; set; }
+        public virtual ISet<Product> Products { get; set; }
+        public virtual ISet<Employee> Lackeys { get; set; }
 
         /*public virtual Employee(int id, string surname, string job, Employee manager, DateTime startTime,
                         float salary, float? comision, int deptno, List<Product> products) 
