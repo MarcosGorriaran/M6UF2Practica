@@ -19,7 +19,7 @@ namespace cat.itb.M6UF2Pr
                 sql.Parameters.AddWithValue("salary", emp.Salary);
                 sql.Parameters.AddWithValue("comission", emp.Comision == null ? DBNull.Value : emp.Comision);
                 sql.Parameters.AddWithValue("deptno", emp.Deptno);
-                int queryResult = ExecutePreparedStatement(sql);
+                int queryResult = ExecutePreparedStatementNonQuery(sql);
                 if (queryResult !=-1) amountInserts+=queryResult;
             }
             return amountInserts;

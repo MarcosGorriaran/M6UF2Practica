@@ -72,12 +72,18 @@ namespace cat.itb.M6UF2Pr
             throw new NotImplementedException(); 
         }
         
-        public int ExecutePreparedStatement(NpgsqlCommand sql)
+        public int ExecutePreparedStatementNonQuery(NpgsqlCommand sql)
         {
             sql.Connection = conn;
 
             sql.Prepare();
             return sql.ExecuteNonQuery();
+        }
+        public NpgsqlDataReader ExecutePreparedStatementQuery(NpgsqlCommand sql)
+        {
+            sql.Connection = conn;
+
+            return sql.ExecuteReader();
         }
         public void Dispose() 
         {
